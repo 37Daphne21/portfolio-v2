@@ -3,90 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAPHNE Portfolio v2</title>
-  <meta name="description" content="웹 퍼블리셔 DAPHNE의 포트폴리오입니다.">
-  <link rel="icon" href="./assets/images/favicon.png" type="image/png">
+  <title>DAPHNE Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
   <header class="header">
-    <a href="/" class="header__logo">
-      <img src="./assets/images/logo.png" alt="DAPHNE">
-    </a>
+    <div class="header__inner">
+      <a href="#hero" class="header__logo" aria-label="DAPHNE Home">
+        DAPHNE
+      </a>
 
-    <nav class="header__nav" aria-label="주요 메뉴">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#works">Works</a>
-      <a href="#lab">Lab</a>
-      <a href="#archive">Archive</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <nav class="header__nav" aria-label="주요 메뉴">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#lab">Lab</a>
+        <a href="#archive">Archive</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-    <button type="button" class="header__menu-button" aria-label="메뉴 열기">
-      <span></span>
-      <span></span>
-    </button>
+      <button type="button" class="header__menu-button" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="hero__content">
-        <p class="hero__eyebrow">Frontend Publisher Portfolio</p>
+    <section class="hero" id="hero">
+      <div class="hero__noise"></div>
+      <div class="hero__orb hero__orb--a"></div>
+      <div class="hero__orb hero__orb--b"></div>
 
-        <h1 class="hero__title">
-          Structured UI,<br>
-          Visual Rhythm,<br>
-          Practical Markup.
-        </h1>
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">WEB PUBLISHER · INTERACTION · BRANDING</p>
 
-        <p class="hero__desc">
-          실무형 마크업을 기반으로 인터랙션과 브랜딩 감각을 확장하는
-          웹 퍼블리셔 DAPHNE의 포트폴리오입니다.
-        </p>
+          <h1 class="hero__title">
+            Structured UI.<br>
+            Visual Rhythm.<br>
+            Meaningful<br>
+            Interaction.
+          </h1>
 
-        <div class="hero__buttons">
-          <a href="#works" class="button button--primary">View Works</a>
-          <a href="#lab" class="button button--line">Explore Lab</a>
+          <p class="hero__desc">
+            실무형 마크업을 기반으로 인터랙션과 브랜딩 감각을 확장하는 웹 퍼블리셔 DAPHNE입니다.
+          </p>
+
+          <div class="hero__buttons">
+            <a href="#works" class="button button--primary">View Works</a>
+            <a href="#lab" class="button button--line">Explore Lab</a>
+          </div>
         </div>
-      </div>
 
-      <div class="hero__index" aria-label="포트폴리오 구성">
-        <div class="hero__index-head">
-          <span>Portfolio Index</span>
-          <span>Selected Projects</span>
-        </div>
+        <aside class="hero__panel" aria-label="Portfolio Index">
+          <div class="hero__panel-top">
+            <span>Portfolio Index</span>
+            <span>Selected</span>
+          </div>
 
-        <ul class="hero__index-list">
-          <li>
-            <span>01</span>
-            <div>
-              <strong>Works</strong>
-              <em>Hanlight · Branding · Dashboard</em>
-            </div>
-          </li>
-          <li>
-            <span>02</span>
-            <div>
-              <strong>Lab</strong>
-              <em>Interactions · Components · Experiments</em>
-            </div>
-          </li>
-          <li>
-            <span>03</span>
-            <div>
-              <strong>Archive</strong>
-              <em>LOOKAT · MELIQUENCE</em>
-            </div>
-          </li>
-          <li>
-            <span>04</span>
-            <div>
-              <strong>Contact</strong>
-              <em>Collaboration & Communication</em>
-            </div>
-          </li>
-        </ul>
+          <ol class="hero__index-list">
+            <li>
+              <span>01</span>
+              <a href="#works">
+                <strong>Works</strong>
+                <em>Hanlight · Branding · Dashboard</em>
+              </a>
+            </li>
+
+            <li>
+              <span>02</span>
+              <a href="#lab">
+                <strong>Lab</strong>
+                <em>Interactions · Components · Experiments</em>
+              </a>
+            </li>
+
+            <li>
+              <span>03</span>
+              <a href="#archive">
+                <strong>Archive</strong>
+                <em>LOOKAT · MELIQUENCE</em>
+              </a>
+            </li>
+
+            <li>
+              <span>04</span>
+              <a href="#contact">
+                <strong>Contact</strong>
+                <em>Collaboration & Communication</em>
+              </a>
+            </li>
+          </ol>
+        </aside>
       </div>
     </section>
   </main>
