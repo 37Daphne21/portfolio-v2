@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAPHNE Portfolio v2</title>
+  <meta name="description" content="웹 퍼블리셔 DAPHNE의 포트폴리오입니다.">
+  <link rel="icon" href="./assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="header__logo">
+      <img src="./assets/images/logo.png" alt="DAPHNE">
+    </a>
+
+    <nav class="header__nav" aria-label="주요 메뉴">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#works">Works</a>
+      <a href="#lab">Lab</a>
+      <a href="#archive">Archive</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button type="button" class="header__menu-button" aria-label="메뉴 열기">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Frontend Publisher Portfolio</p>
+
+        <h1 class="hero__title">
+          Structured UI,<br>
+          Visual Rhythm,<br>
+          Practical Markup.
+        </h1>
+
+        <p class="hero__desc">
+          실무형 마크업을 기반으로 인터랙션과 브랜딩 감각을 확장하는
+          웹 퍼블리셔 DAPHNE의 포트폴리오입니다.
+        </p>
+
+        <div class="hero__buttons">
+          <a href="#works" class="button button--primary">View Works</a>
+          <a href="#lab" class="button button--line">Explore Lab</a>
+        </div>
+      </div>
+
+      <div class="hero__index" aria-label="포트폴리오 구성">
+        <div class="hero__index-head">
+          <span>Portfolio Index</span>
+          <span>Selected Projects</span>
+        </div>
+
+        <ul class="hero__index-list">
+          <li>
+            <span>01</span>
+            <div>
+              <strong>Works</strong>
+              <em>Hanlight · Branding · Dashboard</em>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <strong>Lab</strong>
+              <em>Interactions · Components · Experiments</em>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <strong>Archive</strong>
+              <em>LOOKAT · MELIQUENCE</em>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <strong>Contact</strong>
+              <em>Collaboration & Communication</em>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
