@@ -3,108 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAPHNE Portfolio</title>
-
+  <meta name="description" content="DAPHNE · 이영아 · Web Publisher Portfolio">
+  <meta name="author" content="Daphne · 이영아">
+  <title>DAPHNE · 이영아 · Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
 <body>
   <header class="header">
-    <div class="header__inner">
-      <a href="#hero" class="header__logo" aria-label="DAPHNE Home">
-        DAPHNE
-      </a>
+    <a href="#hero" class="header__logo"><span>D</span>APHNE · 이영아</a>
 
-      <nav class="header__nav" aria-label="주요 메뉴">
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#works">Works</a>
-        <a href="#lab">Lab</a>
-        <a href="#archive">Archive</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <nav class="header__nav" aria-label="주요 메뉴">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#works">Works</a>
+      <a href="#lab">Lab</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-      <button type="button" class="header__menu-button" aria-label="메뉴 열기">
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+    <button type="button" class="header__button" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main>
     <section class="hero" id="hero">
-      <div class="hero__noise"></div>
-      <div class="hero__orb hero__orb--a"></div>
-      <div class="hero__orb hero__orb--b"></div>
+      <div class="hero__content">
+        <p class="hero__tag">Web Publisher / Front-end Explorer</p>
 
-      <div class="hero__inner">
-        <div class="hero__content">
-          <p class="hero__eyebrow">WEB PUBLISHER · INTERACTION · BRANDING</p>
+        <h1 class="hero__title">
+          DAPHNE
+        </h1>
 
-          <h1 class="hero__title">
-            Structured UI.<br>
-            Visual Rhythm.<br>
-            Meaningful<br>
-            Interaction.
-          </h1>
+        <p class="hero__name">이 영 아</p>
 
-          <p class="hero__desc">
-            실무형 마크업을 기반으로 인터랙션과 브랜딩 감각을 확장하는 웹 퍼블리셔 DAPHNE입니다.
-          </p>
+        <p class="hero__desc">
+          <strong>실무형 웹퍼블리셔</strong>를 넘어<br>
+          인터랙션과 브랜딩 감각을 갖춘<br>
+          프론트엔드 퍼블리셔를 지향합니다.
+        </p>
 
-          <div class="hero__buttons">
-            <a href="#works" class="button button--primary">View Works</a>
-            <a href="#lab" class="button button--line">Explore Lab</a>
+        <div class="hero__links">
+          <a href="#works" class="button button--primary">View Works</a>
+          <a href="#contact" class="button button--line">Contact</a>
+        </div>
+      </div>
+
+      <aside class="hero__panel" aria-label="Portfolio Summary">
+        <div class="hero__status">
+          <span class="hero__dot"></span>
+          Available for work
+        </div>
+
+        <div class="hero__panel-block">
+          <p class="hero__panel-label">Current Focus</p>
+          <p class="hero__panel-title">Publishing · Interaction · UI System</p>
+        </div>
+
+        <ol class="hero__index-list">
+          <li>
+            <span>01</span>
+            <a href="#works">
+              <strong>Works</strong>
+              <em>Hanlight · Branding · Dashboard</em>
+            </a>
+          </li>
+          <li>
+            <span>02</span>
+            <a href="#lab">
+              <strong>Lab</strong>
+              <em>Motion · SVG · Scroll · Component</em>
+            </a>
+          </li>
+          <li>
+            <span>03</span>
+            <a href="#about">
+              <strong>About</strong>
+              <em>Markup · Accessibility · Growth</em>
+            </a>
+          </li>
+        </ol>
+
+        <div class="hero__stack">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>GitHub</span>
+        </div>
+      </aside>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section about" id="about">
+      <p class="section__label">About</p>
+
+      <div class="about__grid">
+        <div>
+          <h2 class="about__title">웹표준과 접근성,<br>그리고 <em>인터랙션</em>.</h2>
+          <p class="about__text">HTML/CSS를 기반으로 탄탄한 구조를 짜고, JavaScript로 움직임을 더합니다. 실무형 마크업을 중심으로 브랜딩과 인터랙션 감각을 확장하고 있습니다.</p>
+          <p class="about__text">보기 좋은 화면보다 한 단계 더 나아가, 사용자가 자연스럽게 이해하고 움직일 수 있는 웹 경험을 만드는 것이 목표입니다.</p>
+
+          <div class="tag-list">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>jQuery</span>
+            <span>GitHub</span>
+            <span>VSCode</span>
+            <span>Figma</span>
           </div>
         </div>
 
-        <aside class="hero__panel" aria-label="Portfolio Index">
-          <div class="hero__panel-top">
-            <span>Portfolio Index</span>
-            <span>Selected</span>
+        <div class="about__side">
+          <div class="stat-list">
+            <div>
+              <strong>4+</strong>
+              <span>Years Exp.</span>
+            </div>
+            <div>
+              <strong>6</strong>
+              <span>Projects</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>Publishing</span>
+            </div>
+            <div>
+              <strong>∞</strong>
+              <span>Curiosity</span>
+            </div>
           </div>
 
-          <ol class="hero__index-list">
-            <li>
-              <span>01</span>
-              <a href="#works">
-                <strong>Works</strong>
-                <em>Hanlight · Branding · Dashboard</em>
-              </a>
-            </li>
+          <ul class="skill-list">
+            <li><span>HTML / CSS</span><i data-width="85"></i></li>
+            <li><span>JavaScript</span><i data-width="45"></i></li>
+            <li><span>jQuery</span><i data-width="60"></i></li>
+            <li><span>Git / GitHub</span><i data-width="70"></i></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            <li>
-              <span>02</span>
-              <a href="#lab">
-                <strong>Lab</strong>
-                <em>Interactions · Components · Experiments</em>
-              </a>
-            </li>
+    <div class="divider"></div>
 
-            <li>
-              <span>03</span>
-              <a href="#archive">
-                <strong>Archive</strong>
-                <em>LOOKAT · MELIQUENCE</em>
-              </a>
-            </li>
+    <section class="section works" id="works">
+      <p class="section__label">Works</p>
 
-            <li>
-              <span>04</span>
-              <a href="#contact">
-                <strong>Contact</strong>
-                <em>Collaboration & Communication</em>
-              </a>
-            </li>
-          </ol>
-        </aside>
+      <div class="works__grid">
+        <article class="work-card">
+          <p>Corporate / Real Project</p>
+          <h3>Hanlight Electric</h3>
+          <span>전기공사 기업 공식 홈페이지</span>
+          <a href="https://37daphne21.github.io/hanlight/" target="_blank" rel="noopener">View Project</a>
+          <em>01</em>
+        </article>
+
+        <article class="work-card">
+          <p>Interaction / Lab</p>
+          <h3>Interactive Lab</h3>
+          <span>마우스 트래킹 · SVG · 스크롤 모션 실험</span>
+          <b>Coming Soon</b>
+          <em>02</em>
+        </article>
+
+        <article class="work-card">
+          <p>Branding / Playful</p>
+          <h3>Branding Playful</h3>
+          <span>감각적인 브랜드형 인터랙션 사이트</span>
+          <b>Coming Soon</b>
+          <em>03</em>
+        </article>
+
+        <article class="work-card">
+          <p>Data / Dashboard</p>
+          <h3>Travel Dashboard</h3>
+          <span>한국 여행 데이터 시각화 대시보드</span>
+          <b>Coming Soon</b>
+          <em>04</em>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section lab" id="lab">
+      <p class="section__label">Lab</p>
+
+      <div class="lab__grid">
+        <h2>Small experiments,<br>better interaction.</h2>
+        <p>스크롤, 마우스, SVG, 컴포넌트 단위의 작은 실험을 쌓아 더 자연스러운 사용자 경험을 만드는 공간입니다.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section contact" id="contact">
+      <p class="section__label">Contact</p>
+
+      <div class="contact__grid">
+        <h2>Let's build<br>something <em>together.</em></h2>
+
+        <div class="contact__links">
+          <a href="mailto:37daphne21@gmail.com">↗ 37daphne21@gmail.com</a>
+          <a href="https://github.com/37Daphne21" target="_blank" rel="noopener">↗ GitHub</a>
+          <a href="https://www.notion.so/daphne3721/" target="_blank" rel="noopener">↗ Notion</a>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <span>© 2026 DAPHNE · 이영아</span>
+    <span>WEB PUBLISHER · SEOUL</span>
+  </footer>
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>
