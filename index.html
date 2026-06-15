@@ -10,12 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/js/main.js" defer></script>
 </head>
 <body>
   <div class="wrap">
     <!-- Grid Background -->
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="noise" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-noise" aria-hidden="true"></div>
 
     <!-- Header -->
     <header class="header">
@@ -96,7 +97,7 @@
             </li>
           </ol>
     
-          <div class="hero__stack">
+          <div class="tag">
             <span>HTML</span>
             <span>CSS</span>
             <span>JavaScript</span>
@@ -110,12 +111,12 @@
         <p class="section__label">About</p>
   
         <div class="about__grid">
-          <div>
+          <div class="about__content">
             <h2 class="about__title">웹표준과 접근성,<br>그리고 <em>인터랙션</em>.</h2>
             <p class="about__text">HTML/CSS를 기반으로 탄탄한 구조를 짜고, JavaScript로 움직임을 더합니다. 실무형 마크업을 중심으로 브랜딩과 인터랙션 감각을 확장하고 있습니다.</p>
             <p class="about__text">보기 좋은 화면보다 한 단계 더 나아가, 사용자가 자연스럽게 이해하고 움직일 수 있는 웹 경험을 만드는 것이 목표입니다.</p>
   
-            <div class="tag-list">
+            <div class="tag">
               <span>HTML5</span>
               <span>CSS3</span>
               <span>JavaScript</span>
@@ -165,7 +166,7 @@
             <p>Corporate / Real Project</p>
             <h3>Hanlight Electric</h3>
             <span>전기공사 기업 공식 홈페이지</span>
-            <a href="https://37daphne21.github.io/hanlight/" target="_blank" rel="noopener">View Project</a>
+            <a href="https://37daphne21.github.io/hanlight/" class="button--text button--arrow" target="_blank" rel="noopener">View Project</a>
             <em>01</em>
           </article>
   
@@ -173,7 +174,7 @@
             <p>Interaction / Lab</p>
             <h3>Interactive Lab</h3>
             <span>마우스 트래킹 · SVG · 스크롤 모션 실험</span>
-            <b>Coming Soon</b>
+            <span class="tag tag--mute"><span>Coming Soon</span></span>
             <em>02</em>
           </article>
   
@@ -181,7 +182,7 @@
             <p>Branding / Playful</p>
             <h3>Branding Playful</h3>
             <span>감각적인 브랜드형 인터랙션 사이트</span>
-            <b>Coming Soon</b>
+            <span class="tag tag--mute"><span>Coming Soon</span></span>
             <em>03</em>
           </article>
   
@@ -189,7 +190,7 @@
             <p>Data / Dashboard</p>
             <h3>Travel Dashboard</h3>
             <span>한국 여행 데이터 시각화 대시보드</span>
-            <b>Coming Soon</b>
+            <span class="tag tag--mute"><span>Coming Soon</span></span>
             <em>04</em>
           </article>
         </div>
@@ -227,7 +228,5 @@
       <span>WEB PUBLISHER · SEOUL</span>
     </footer>
   </div>
-
-  <script src="./assets/js/main.js"></script>
 </body>
 </html>

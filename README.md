@@ -26,24 +26,24 @@
     
 - 트리
   portfolio-v2
-  ├─ assets
-  │  ├─ css
-  │  ├─ images
-  │  ├─ js
-  │  ├─ fonts
-  │  ├─ icons
-  │  └─ videos
-  ├─ projects
-  │  ├─ hanlight
-  │  ├─ interactive-lab
-  │  ├─ branding-playful
-  │  ├─ branding-luxury
-  │  └─ dashboard
-  ├─ archive
-  │  ├─ lookat
-  │  └─ meliquence
-  ├─ index.html
-  └─ README.md
+  - assets
+    - css
+    - images
+    - js
+    - fonts
+    - icons
+    - videos
+  - projects
+    - hanlight
+    - interactive-lab
+    - branding-playful
+    - branding-luxury
+    - dashboard
+  - archive
+    - lookat
+    - meliquence
+  - index.html
+  - README.md
 
 
 ### 1. 메인 프로필 페이지
@@ -64,15 +64,15 @@
 Home
 About
 Works
-├─ Hanlight
-├─ Branding Playful
-├─ Branding Luxury
-└─ Dashboard
+  - Hanlight
+  - Branding Playful
+  - Branding Luxury
+  - Dashboard
 
 Lab
-├─ Interactions
-├─ Components
-└─ Experiments
+  - Interactions
+  - Components
+  - Experiments
 
 Archive
 Contact
