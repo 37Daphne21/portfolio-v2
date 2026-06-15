@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse 60% 45% at 80% 10%, rgba(157, 125, 255, 0.14), transparent 70%), #050508;
+  color: #e8e6f0;
+  font-family: "Space Grotesk", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.experiment {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  padding: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.experiment__back {
+  display: block;
+  margin-bottom: clamp(2rem, 5vw, 5rem);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.experiment__back:hover,
+.experiment__back:focus-visible {
+  color: #9d7dff;
+}
+
+.experiment__section {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  min-height: 100%;
+}
+
+.experiment__content {
+  min-width: 0;
+}
+
+.experiment__label {
+  margin: 0 0 1rem;
+  color: #9d7dff;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.experiment__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 6vw, 5rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.experiment__desc {
+  margin: 1.5rem 0 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+
+@media (max-width: 768px) {
+  .experiment__section {
+    grid-template-columns: 1fr;
+  }
+}

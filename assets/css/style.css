@@ -154,6 +154,7 @@ button:focus-visible {
 }
 
 .section {
+  overflow: hidden;
   position: relative;
   z-index: 1;
   padding-block: clamp(3.5rem, 8vw, 5rem);
@@ -751,17 +752,270 @@ button:focus-visible {
 
 
 /* Lab */
-.lab__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: end;
-  gap: clamp(2rem, 5vw, 4rem);
+.lab {
+  background:
+    radial-gradient(
+      ellipse 60% 45% at 85% 10%,
+      rgba(157, 125, 255, 0.10) 0%,
+      rgba(157, 125, 255, 0.03) 40%,
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 40% 30% at 20% 80%,
+      rgba(157, 125, 255, 0.04) 0%,
+      transparent 70%
+    );
 }
 
-.lab__grid p {
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 0.9rem;
+.lab__head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(16rem, 1fr);
+  align-items: end;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.lab__desc {
+  color: var(--color-muted);
+  font-size: clamp(0.875rem, 1.4vw, 1rem);
   line-height: 1.9;
+}
+
+.lab__filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.lab__filter-button {
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--color-dim);
+  border-radius: 999px;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.lab__filter-button:hover,
+.lab__filter-button:focus-visible,
+.lab__filter-button.is-active {
+  border-color: var(--color-accent-light);
+  background: var(--color-accent-dim);
+  color: var(--color-accent-light);
+}
+
+.lab__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.lab-card {
+  min-height: 100%;
+}
+
+.lab-card.is-hidden {
+  display: none;
+}
+
+.lab-card__link {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lab-card__link:hover,
+.lab-card__link:focus-visible {
+  border-color: var(--color-accent-border);
+  background: linear-gradient(145deg, rgba(157, 125, 255, 0.08), rgba(255, 255, 255, 0.012));
+  box-shadow: 0 0 2rem rgba(157, 125, 255, 0.12);
+  transform: translateY(-0.375rem);
+}
+
+.lab-card__visual {
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(10rem, 22vw, 16rem);
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lab-card__visual::before {
+  content: '';
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lab-card__visual--mouse .lab-card__orb {
+  position: absolute;
+  width: clamp(4rem, 8vw, 6rem);
+  height: clamp(4rem, 8vw, 6rem);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(157, 125, 255, 0.9), rgba(157, 125, 255, 0.08) 65%, transparent 70%);
+  animation: labOrb 4s ease-in-out infinite;
+}
+
+.lab-card__visual--mouse .lab-card__line {
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  transform: rotate(-18deg);
+}
+
+.lab-card__visual--scroll {
+  gap: 0.75rem;
+}
+
+.lab-card__visual--scroll span {
+  width: 62%;
+  height: clamp(2rem, 4vw, 3rem);
+  border: 1px solid var(--color-accent-border);
+  border-radius: 999px;
+  background: var(--color-accent-dim);
+  animation: labScroll 3s ease-in-out infinite;
+}
+
+.lab-card__visual--scroll span:nth-child(2) {
+  width: 76%;
+  animation-delay: 0.15s;
+}
+
+.lab-card__visual--scroll span:nth-child(3) {
+  width: 52%;
+  animation-delay: 0.3s;
+}
+
+.lab-card__visual--svg svg {
+  width: 72%;
+}
+
+.lab-card__visual--svg path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: labSvgLine 3.2s ease-in-out infinite;
+}
+
+.lab-card__visual--component span {
+  position: absolute;
+  width: clamp(6rem, 12vw, 9rem);
+  height: clamp(4rem, 8vw, 6rem);
+  border: 1px solid var(--color-accent-border);
+  border-radius: 0.25rem;
+  background: var(--color-accent-dim);
+  transform: rotate(-8deg) translate(-0.75rem, -0.5rem);
+  animation: labCardMotion 4s ease-in-out infinite;
+}
+
+.lab-card__visual--component span:nth-child(2) {
+  background: rgba(255, 255, 255, 0.04);
+  transform: rotate(8deg) translate(0.75rem, 0.5rem);
+  animation-delay: 0.2s;
+}
+
+.lab-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.lab-card__meta {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lab-card__title {
+  margin-top: 1rem;
+  color: var(--color-white);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.lab-card__desc {
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.lab-card__button {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@keyframes labOrb {
+  0%, 100% {
+    transform: translate(-1.5rem, -0.75rem) scale(1);
+  }
+
+  50% {
+    transform: translate(1.5rem, 0.75rem) scale(1.12);
+  }
+}
+
+@keyframes labScroll {
+  0%, 100% {
+    opacity: 0.45;
+    transform: translateX(-0.75rem);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(0.75rem);
+  }
+}
+
+@keyframes labSvgLine {
+  0% {
+    stroke-dashoffset: 420;
+  }
+
+  45%, 65% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -420;
+  }
+}
+
+@keyframes labCardMotion {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -0.75rem;
+  }
 }
 
 

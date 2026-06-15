@@ -222,3 +222,31 @@
 
   movePreview('hanlight');
 }());
+
+
+// Lab
+(function () {
+  const labFilters = document.querySelectorAll('[data-lab-filter]');
+  const labItems = document.querySelectorAll('[data-lab-item]');
+
+  if (!labFilters.length || !labItems.length) return;
+
+  labFilters.forEach(function (filter) {
+    filter.addEventListener('click', function () {
+      const selectedCategory = filter.dataset.labFilter;
+
+      labFilters.forEach(function (button) {
+        button.classList.remove('is-active');
+      });
+
+      filter.classList.add('is-active');
+
+      labItems.forEach(function (item) {
+        const itemCategory = item.dataset.labCategory;
+        const isVisible = selectedCategory === 'all' || selectedCategory === itemCategory;
+
+        item.classList.toggle('is-hidden', !isVisible);
+      });
+    });
+  });
+}());

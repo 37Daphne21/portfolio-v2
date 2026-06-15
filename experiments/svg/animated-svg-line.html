@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated SVG Line · DAPHNE LAB</title>
+  <link rel="stylesheet" href="../_assets/experiment.css">
+  <script src="../_assets/experiment.js" defer></script>
+  
+  <style>
+    .svg-board {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: clamp(20rem, 42vw, 32rem);
+      border: 1px solid rgba(157, 125, 255, 0.22);
+      border-radius: 0.5rem;
+      background: linear-gradient(rgba(157, 125, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(157, 125, 255, 0.06) 1px, transparent 1px), linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+      background-size: 2rem 2rem, 2rem 2rem, auto;
+      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.32);
+    }
+
+    .svg-board::before {
+      content: '';
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .svg-board__art {
+      width: min(82vw, 56rem);
+      height: auto;
+    }
+
+    .svg-board__path {
+      fill: none;
+      stroke: #9d7dff;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1200;
+      stroke-dashoffset: 1200;
+      filter: drop-shadow(0 0 0.75rem rgba(157, 125, 255, 0.65));
+      animation: drawLine 4s ease-in-out infinite;
+    }
+
+    .svg-board__path--thin {
+      stroke: rgba(255, 255, 255, 0.35);
+      stroke-width: 1.5;
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      filter: none;
+      animation: drawLineThin 4s ease-in-out infinite;
+      animation-delay: 0.25s;
+    }
+
+    .svg-board__dot {
+      fill: #9d7dff;
+      filter: drop-shadow(0 0 0.75rem rgba(157, 125, 255, 0.8));
+      opacity: 0;
+      animation: showDot 4s ease-in-out infinite;
+    }
+
+    .svg-board__dot--01 {
+      animation-delay: 0.8s;
+    }
+
+    .svg-board__dot--02 {
+      animation-delay: 1.4s;
+    }
+
+    .svg-board__dot--03 {
+      animation-delay: 2s;
+    }
+
+    .svg-board__text {
+      fill: rgba(255, 255, 255, 0.8);
+      font-family: monospace;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: showText 4s ease-in-out infinite;
+      animation-delay: 1.6s;
+    }
+
+    @keyframes drawLine {
+      0% {
+        stroke-dashoffset: 1200;
+      }
+
+      45%, 70% {
+        stroke-dashoffset: 0;
+      }
+
+      100% {
+        stroke-dashoffset: -1200;
+      }
+    }
+
+    @keyframes drawLineThin {
+      0% {
+        stroke-dashoffset: 900;
+      }
+
+      45%, 70% {
+        stroke-dashoffset: 0;
+      }
+
+      100% {
+        stroke-dashoffset: -900;
+      }
+    }
+
+    @keyframes showDot {
+      0%, 18%, 90%, 100% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+
+      28%, 70% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes showText {
+      0%, 35%, 90%, 100% {
+        opacity: 0;
+        transform: translateY(0.5rem);
+      }
+
+      45%, 72% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="experiment">
+    <experiment-layout
+      label="Experiment 03 · SVG"
+      title="ANIMATED|SVG LINE"
+      desc="SVG stroke 애니메이션으로 선이 그려지는 듯한 움직임을 표현합니다."
+    >
+      <div class="svg-board">
+        <svg class="svg-board__art" viewBox="0 0 900 360" role="img" aria-label="선을 따라 연결되는 SVG 애니메이션">
+          <path class="svg-board__path svg-board__path--thin" d="M90 255 C190 80, 320 95, 405 185 S610 285, 785 95"></path>
+          <path class="svg-board__path" d="M90 255 C190 80, 320 95, 405 185 S610 285, 785 95"></path>
+
+          <circle class="svg-board__dot svg-board__dot--01" cx="90" cy="255" r="7"></circle>
+          <circle class="svg-board__dot svg-board__dot--02" cx="405" cy="185" r="7"></circle>
+          <circle class="svg-board__dot svg-board__dot--03" cx="785" cy="95" r="7"></circle>
+
+          <text class="svg-board__text" x="90" y="310">Start</text>
+          <text class="svg-board__text" x="370" y="145">Flow</text>
+          <text class="svg-board__text" x="735" y="65">Finish</text>
+        </svg>
+      </div>
+    </experiment-layout>
+  </main>
+</body>
+</html>

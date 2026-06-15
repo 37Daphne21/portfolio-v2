@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Stack Motion · DAPHNE LAB</title>
+  <link rel="stylesheet" href="../_assets/experiment.css">
+  <script src="../_assets/experiment.js" defer></script>
+  <style>
+    .stack-demo {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .stack {
+      position: relative;
+      min-height: clamp(24rem, 45vw, 34rem);
+      perspective: 1200px;
+    }
+
+    .stack__card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(100%, 24rem);
+      min-height: 13rem;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      border: 1px solid rgba(157, 125, 255, 0.28);
+      border-radius: 0.5rem;
+      background: #14121c;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transform: translate(-50%, -50%) translateX(var(--x, 0)) translateY(var(--y, 0)) rotate(var(--r, 0deg)) scale(var(--s, 1));
+      opacity: var(--o, 1);
+      z-index: var(--z, 1);
+      box-shadow: var(--shadow, none);
+      transition: transform 0.45s ease, opacity 0.45s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stack__card.is-active {
+      border-color: rgba(157, 125, 255, 0.75);
+      background: linear-gradient(145deg, rgba(157, 125, 255, 0.18), #16131f);
+    }
+
+    .stack__index {
+      display: block;
+      margin-bottom: 1rem;
+      color: #9d7dff;
+      font-family: monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .stack__title {
+      margin: 0 0 0.75rem;
+      color: #ffffff;
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .stack__desc {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .stack__hint {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 0.875rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .stack {
+        min-height: 34rem;
+      }
+
+      .stack__card {
+        width: min(100%, 21rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="experiment">
+    <experiment-layout
+      label="Experiment 04 · Component"
+      title="CARD|STACK MOTION"
+      desc="선택한 카드가 앞으로 올라오며 계층 구조를 표현하는 컴포넌트 인터랙션입니다."
+    >
+      <div class="stack-demo">
+        <div class="stack">
+          <button class="stack__card" type="button">
+            <span class="stack__index">Card 01</span>
+            <h2 class="stack__title">Practical Publishing</h2>
+            <p class="stack__desc">시맨틱 마크업과 접근성을 고려한 구조 설계를 지향합니다.</p>
+          </button>
+
+          <button class="stack__card" type="button">
+            <span class="stack__index">Card 02</span>
+            <h2 class="stack__title">Interaction Design</h2>
+            <p class="stack__desc">작은 움직임을 통해 사용자 경험을 개선하는 방법을 연구합니다.</p>
+          </button>
+
+          <button class="stack__card" type="button">
+            <span class="stack__index">Card 03</span>
+            <h2 class="stack__title">Continuous Growth</h2>
+            <p class="stack__desc">실험과 기록을 통해 더 나은 프론트엔드 경험을 만들어갑니다.</p>
+          </button>
+        </div>
+
+        <p class="stack__hint">카드를 선택해 움직임을 확인해보세요.</p>
+      </div>
+    </experiment-layout>
+  </main>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const cards = document.querySelectorAll('.stack__card');
+
+      function setStack(activeIndex) {
+        cards.forEach(function (card, index) {
+          card.classList.toggle('is-active', index === activeIndex);
+
+          if (index === activeIndex) {
+            card.style.setProperty('--x', '0rem');
+            card.style.setProperty('--y', '-2rem');
+            card.style.setProperty('--r', '0deg');
+            card.style.setProperty('--s', '1.04');
+            card.style.setProperty('--o', '1');
+            card.style.setProperty('--z', '10');
+            card.style.setProperty('--shadow', '0 1.5rem 4rem rgba(0, 0, 0, 0.45), 0 0 2rem rgba(157, 125, 255, 0.22)');
+          }
+
+          if (index < activeIndex) {
+            card.style.setProperty('--x', '-18rem');
+            card.style.setProperty('--y', '2rem');
+            card.style.setProperty('--r', '-8deg');
+            card.style.setProperty('--s', '0.88');
+            card.style.setProperty('--o', '0.75');
+            card.style.setProperty('--z', '2');
+            card.style.setProperty('--shadow', '0 1rem 2rem rgba(0, 0, 0, 0.22)');
+          }
+
+          if (index > activeIndex) {
+            card.style.setProperty('--x', '18rem');
+            card.style.setProperty('--y', '2rem');
+            card.style.setProperty('--r', '8deg');
+            card.style.setProperty('--s', '0.88');
+            card.style.setProperty('--o', '0.75');
+            card.style.setProperty('--z', '2');
+            card.style.setProperty('--shadow', '0 1rem 2rem rgba(0, 0, 0, 0.22)');
+          }
+        });
+      }
+
+      cards.forEach(function (card, index) {
+        card.addEventListener('click', function () {
+          setStack(index);
+        });
+
+        card.addEventListener('focus', function () {
+          setStack(index);
+        });
+      });
+
+      setStack(1);
+    });
+  </script>
+</body>
+</html>

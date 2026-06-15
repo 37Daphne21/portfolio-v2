@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinite Scroll Gallery · DAPHNE LAB</title>
+  <link rel="stylesheet" href="../_assets/experiment.css">
+  <script src="../_assets/experiment.js" defer></script>
+  
+  <style>
+    .gallery__viewport {
+      overflow: hidden;
+      position: relative;
+      margin-inline: calc(clamp(1.25rem, 5vw, 2.5rem) * -1);
+      padding-block: 1rem;
+    }
+
+    .gallery__viewport::before,
+    .gallery__viewport::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      width: 18vw;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .gallery__viewport::before {
+      left: 0;
+      background: linear-gradient(90deg, #050508, transparent);
+    }
+
+    .gallery__viewport::after {
+      right: 0;
+      background: linear-gradient(270deg, #050508, transparent);
+    }
+
+    .gallery__track {
+      display: flex;
+      gap: clamp(1rem, 2.4vw, 1.5rem);
+      width: max-content;
+      animation: galleryMove 26s linear infinite;
+    }
+
+    .gallery__viewport:hover .gallery__track {
+      animation-play-state: paused;
+    }
+
+    .gallery__item {
+      overflow: hidden;
+      position: relative;
+      display: grid;
+      place-items: end start;
+      width: clamp(13rem, 24vw, 22rem);
+      height: clamp(17rem, 32vw, 28rem);
+      padding: 1.25rem;
+      border: 1px solid rgba(157, 125, 255, 0.22);
+      border-radius: 0.5rem;
+      background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.16), transparent 28%), linear-gradient(145deg, var(--card-start), var(--card-end));
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
+    }
+
+    .gallery__item::before {
+      content: '';
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .gallery__item span {
+      position: relative;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.82);
+      font-family: monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .gallery__item--01 {
+      --card-start: #1c1638;
+      --card-end: #7352ea;
+    }
+
+    .gallery__item--02 {
+      --card-start: #111827;
+      --card-end: #374151;
+    }
+
+    .gallery__item--03 {
+      --card-start: #2d1b45;
+      --card-end: #9d7dff;
+    }
+
+    .gallery__item--04 {
+      --card-start: #0f172a;
+      --card-end: #312e81;
+    }
+
+    .gallery__item--05 {
+      --card-start: #18181b;
+      --card-end: #52525b;
+    }
+
+    .gallery__item--06 {
+      --card-start: #22172f;
+      --card-end: #4c1d95;
+    }
+
+    @keyframes galleryMove {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(-50% - clamp(1rem, 2.4vw, 1.5rem) / 2));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="experiment">
+    <experiment-layout
+      label="Experiment 02 · Scroll"
+      title="INFINITE|GALLERY"
+      desc="반복되는 카드 흐름을 통해 끊기지 않는 스크롤 경험을 표현합니다."
+    >
+      <div class="gallery__viewport">
+        <div class="gallery__track">
+          <article class="gallery__item gallery__item--01"><span>Motion 01</span></article>
+          <article class="gallery__item gallery__item--02"><span>Motion 02</span></article>
+          <article class="gallery__item gallery__item--03"><span>Motion 03</span></article>
+          <article class="gallery__item gallery__item--04"><span>Motion 04</span></article>
+          <article class="gallery__item gallery__item--05"><span>Motion 05</span></article>
+          <article class="gallery__item gallery__item--06"><span>Motion 06</span></article>
+
+          <article class="gallery__item gallery__item--01" aria-hidden="true"><span>Motion 01</span></article>
+          <article class="gallery__item gallery__item--02" aria-hidden="true"><span>Motion 02</span></article>
+          <article class="gallery__item gallery__item--03" aria-hidden="true"><span>Motion 03</span></article>
+          <article class="gallery__item gallery__item--04" aria-hidden="true"><span>Motion 04</span></article>
+          <article class="gallery__item gallery__item--05" aria-hidden="true"><span>Motion 05</span></article>
+          <article class="gallery__item gallery__item--06" aria-hidden="true"><span>Motion 06</span></article>
+        </div>
+      </div>
+    </experiment-layout>
+  </main>
+</body>
+</html>

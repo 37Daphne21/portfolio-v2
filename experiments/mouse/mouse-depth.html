@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Depth Effect · DAPHNE LAB</title>
+  <link rel="stylesheet" href="../_assets/experiment.css">
+  <script src="../_assets/experiment.js" defer></script>
+
+  <style>
+    .depth-wrap {
+      display: grid;
+      place-items: center;
+      perspective: 1000px;
+    }
+
+    .depth-card {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: min(100%, 36rem);
+      min-height: clamp(22rem, 48vw, 32rem);
+      border: 1px solid rgba(157, 125, 255, 0.22);
+      border-radius: 0.5rem;
+      background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), rgba(157, 125, 255, 0.28), transparent 34%), linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.015));
+      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.35);
+      transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+      transform-style: preserve-3d;
+      transition: transform 0.12s ease;
+    }
+
+    .depth-card::before {
+      content: '';
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .depth-card__content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      text-align: center;
+      transform: translateZ(4rem);
+    }
+
+    .depth-card__title {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .depth-card__point {
+      position: absolute;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #9d7dff;
+      box-shadow: 0 0 1rem rgba(157, 125, 255, 0.8);
+      transform: translateZ(5rem);
+    }
+
+    .depth-card__point--top {
+      top: 2rem;
+      right: 2rem;
+    }
+
+    .depth-card__point--bottom {
+      bottom: 2rem;
+      left: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="experiment">
+    <experiment-layout
+      label="Experiment 01 · Mouse"
+      title="MOUSE|DEPTH"
+      desc="사용자의 움직임에 반응하며<br>입체적인 경험을 만들어냅니다."
+    >
+      <div class="depth-wrap">
+        <section class="depth-card" aria-label="Mouse depth effect demo">
+          <span class="depth-card__point depth-card__point--top" aria-hidden="true"></span>
+          <span class="depth-card__point depth-card__point--bottom" aria-hidden="true"></span>
+
+          <div class="depth-card__content">
+            <h2 class="depth-card__title">DAPHNE</h2>
+          </div>
+        </section>
+      </div>
+    </experiment-layout>
+  </main>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const card = document.querySelector('.depth-card');
+
+      if (!card) return;
+
+      function moveCard(event) {
+        const rect = card.getBoundingClientRect();
+        const point = event.touches ? event.touches[0] : event;
+
+        const mouseX = point.clientX - rect.left;
+        const mouseY = point.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateY = ((mouseX - centerX) / centerX) * 10;
+        const rotateX = ((centerY - mouseY) / centerY) * 10;
+        const lightX = (mouseX / rect.width) * 100;
+        const lightY = (mouseY / rect.height) * 100;
+
+        card.style.setProperty('--rotate-x', rotateX + 'deg');
+        card.style.setProperty('--rotate-y', rotateY + 'deg');
+        card.style.setProperty('--light-x', lightX + '%');
+        card.style.setProperty('--light-y', lightY + '%');
+      }
+
+      function resetCard() {
+        card.style.setProperty('--rotate-x', '0deg');
+        card.style.setProperty('--rotate-y', '0deg');
+        card.style.setProperty('--light-x', '50%');
+        card.style.setProperty('--light-y', '50%');
+      }
+
+      card.addEventListener('mousemove', moveCard);
+      card.addEventListener('touchmove', moveCard);
+      card.addEventListener('mouseleave', resetCard);
+      card.addEventListener('touchend', resetCard);
+    });
+  </script>
+</body>
+</html>
