@@ -56,9 +56,9 @@
   const workVisual = document.querySelector('.works-preview__visual');
   const workImage = document.querySelector('.works-preview__image');
   const workVisualText = document.querySelector('.works-preview__visual span');
-  const workStatus = document.querySelector('.works-preview__status');
-  const workTitle = document.querySelector('.works-preview__info h3');
-  const workType = document.querySelector('.works-preview__info span');
+  const workStatus = document.querySelector('.works-preview__summary-status');
+  const workTitle = document.querySelector('.works-preview__summary-title');
+  const workType = document.querySelector('.works-preview__summary-desc');
   const workDesc = document.querySelector('.works-preview__desc');
   const workTag = document.querySelector('.works-preview__tag');
   const workLink = document.querySelector('.works-preview__link');
