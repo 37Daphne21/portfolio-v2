@@ -34,8 +34,8 @@ button {
   --color-black: #000;
   --color-white: #ffffff;
   --color-bg: #050508;
-  --color-muted: rgba(255, 255, 255, 0.5);
-  --color-dim: rgba(255, 255, 255, 0.25);
+  --color-muted: rgba(255, 255, 255, 0.6);
+  --color-dim: rgba(255, 255, 255, 0.3);
   --color-surface: rgba(255, 255, 255, 0.02);
   --color-border: rgba(255, 255, 255, 0.06);
   --color-text: #e8e6f0;
@@ -655,7 +655,6 @@ button:focus-visible {
 
 .works-preview__count {
   color: var(--color-accent);
-  font-family: var(--font-mono);
   font-size: 0.875rem;
   letter-spacing: 0.08em;
 }

@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mouse Depth Effect · DAPHNE LAB</title>
-  <link rel="stylesheet" href="../_assets/experiment.css">
-  <script src="../_assets/experiment.js" defer></script>
+  <link rel="stylesheet" href="../_assets/experiment.css?v=2">
+  <script src="../_assets/experiment.js?v=2" defer></script>
 
   <style>
     .depth-wrap {
@@ -101,16 +101,21 @@
 
       if (!card) return;
 
+      function isTouchDevice() {
+        return window.matchMedia('(hover: none)').matches;
+      }
+
       function moveCard(event) {
         const rect = card.getBoundingClientRect();
         const point = event.touches ? event.touches[0] : event;
+        const maxRotate = isTouchDevice() ? 4 : 10;
 
         const mouseX = point.clientX - rect.left;
         const mouseY = point.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateY = ((mouseX - centerX) / centerX) * 10;
-        const rotateX = ((centerY - mouseY) / centerY) * 10;
+        const rotateY = ((mouseX - centerX) / centerX) * maxRotate;
+        const rotateX = ((centerY - mouseY) / centerY) * maxRotate;
         const lightX = (mouseX / rect.width) * 100;
         const lightY = (mouseY / rect.height) * 100;
 
@@ -127,10 +132,14 @@
         card.style.setProperty('--light-y', '50%');
       }
 
-      card.addEventListener('mousemove', moveCard);
-      card.addEventListener('touchmove', moveCard);
-      card.addEventListener('mouseleave', resetCard);
-      card.addEventListener('touchend', resetCard);
+      if (isTouchDevice()) {
+        card.addEventListener('touchstart', moveCard, { passive: true });
+        card.addEventListener('touchmove', moveCard, { passive: true });
+        card.addEventListener('touchend', resetCard);
+      } else {
+        card.addEventListener('mousemove', moveCard);
+        card.addEventListener('mouseleave', resetCard);
+      }
     });
   </script>
 </body>

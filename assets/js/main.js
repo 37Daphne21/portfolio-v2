@@ -67,7 +67,6 @@
 
   const worksData = {
     hanlight: {
-      count: '01 / 04',
       visualClass: 'works-preview__visual--hanlight',
       visualImage: './assets/images/works/work_preview_hanlight.jpg',
       visualText: '',
@@ -81,7 +80,6 @@
       isReady: true
     },
     playful: {
-      count: '02 / 04',
       visualClass: 'works-preview__visual--playful',
       visualImage: '',
       visualText: 'PLAYFUL',
@@ -95,7 +93,6 @@
       isReady: false
     },
     luxury: {
-      count: '03 / 04',
       visualClass: 'works-preview__visual--luxury',
       visualImage: '',
       visualText: 'LUXURY',
@@ -109,7 +106,6 @@
       isReady: false
     },
     dashboard: {
-      count: '04 / 04',
       visualClass: 'works-preview__visual--dashboard',
       visualImage: '',
       visualText: 'DASHBOARD',
@@ -145,7 +141,12 @@
 
     if (!data) return;
 
-    workCount.textContent = data.count;
+    const totalCount = workItems.length;
+    const currentIndex = Array.from(workItems).findIndex(function (item) {
+      return item.dataset.work === key;
+    }) + 1;
+
+    workCount.textContent = `${String(currentIndex).padStart(2, '0')} / ${String(totalCount).padStart(2, '0')}`;
     workVisual.className = `works-preview__visual ${data.visualClass}`;
 
     if (data.visualImage) {

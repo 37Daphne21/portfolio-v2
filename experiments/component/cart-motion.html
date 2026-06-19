@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Card Stack Motion · DAPHNE LAB</title>
-  <link rel="stylesheet" href="../_assets/experiment.css">
-  <script src="../_assets/experiment.js" defer></script>
+  <link rel="stylesheet" href="../_assets/experiment.css?v=2">
+  <script src="../_assets/experiment.js?v=2" defer></script>
   <style>
     .stack-demo {
       display: grid;
@@ -124,7 +124,13 @@
     window.addEventListener('DOMContentLoaded', function () {
       const cards = document.querySelectorAll('.stack__card');
 
+      function getMoveX() {
+        return window.matchMedia('(max-width: 768px)').matches ? '4rem' : '18rem';
+      }
+
       function setStack(activeIndex) {
+        const moveX = getMoveX();
+
         cards.forEach(function (card, index) {
           card.classList.toggle('is-active', index === activeIndex);
 
@@ -139,7 +145,7 @@
           }
 
           if (index < activeIndex) {
-            card.style.setProperty('--x', '-18rem');
+            card.style.setProperty('--x', `-${moveX}`);
             card.style.setProperty('--y', '2rem');
             card.style.setProperty('--r', '-8deg');
             card.style.setProperty('--s', '0.88');
@@ -149,7 +155,7 @@
           }
 
           if (index > activeIndex) {
-            card.style.setProperty('--x', '18rem');
+            card.style.setProperty('--x', moveX);
             card.style.setProperty('--y', '2rem');
             card.style.setProperty('--r', '8deg');
             card.style.setProperty('--s', '0.88');
@@ -168,6 +174,13 @@
         card.addEventListener('focus', function () {
           setStack(index);
         });
+      });
+
+      window.addEventListener('resize', function () {
+        const activeCard = document.querySelector('.stack__card.is-active');
+        const activeIndex = Array.from(cards).indexOf(activeCard);
+
+        setStack(activeIndex < 0 ? 1 : activeIndex);
       });
 
       setStack(1);
