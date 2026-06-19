@@ -1208,7 +1208,7 @@ button:focus-visible {
     gap: 0;
     padding: 1rem clamp(1.25rem, 5vw, 2.5rem);
     border-bottom: 1px solid var(--color-border);
-    background: rgba(5, 5, 8, 0.95);
+    background: rgba(5, 5, 8, 0.98);
     backdrop-filter: blur(12px);
   }
 
