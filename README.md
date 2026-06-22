@@ -1,78 +1,249 @@
-## 260614 포폴 리뉴얼
-***  목표: "실무형 퍼블리셔를 넘어 인터랙션과 브랜딩 감각을 갖춘 프론트엔드 퍼블리셔 포트폴리오 구축”**
+# Portfolio v2 MD 최신화
 
-* 포폴 순서
-1. 메인 프로필페이지 리뉴얼 → Futuristic or mix(Futuristic + Editorial)
-2. 대표 프로젝트 정리
-  - 실무형 페이지 (한빛전기) → ●완료
-  - 인터렉션 실험실 (Interactive Lab)
-  - 브랜딩 사이트 (Branding)
-    - Playful
-    - Luxury
-    ※ Editorial 스타일은 메인 프로필 페이지에 우선 적용
-  - 데이터 시각화 (Data Dashboard)
-3. Archive
-  - LOOKAT Reimagined
-  - MELIQUENCE Reimagined
+## 현재 진행 상태
 
-* 로드맵
-1. 메인 프로필 페이지 → Futuristic + Editorial
-2. Hanlight → 실무형
-3. Interactive Lab → 마우스 / SVG / 스크롤 / 키 다운 / 모핑 실험
-4. Branding - Playful → 공방 플랫폼 또는 게임형 페이지
-5. Branding - Luxury → 부티크 / 향수 / 주얼리
-6. Data Dashboard → 한국 여행 대시보드
-7. Archive → LOOKAT / MELIQUENCE Reimagined
-    
-* 트리
-- portfolio-v2
-  - assets
-    - css
-    - images
-    - js
-    - fonts
-    - icons
-    - videos
-  - projects
-    - hanlight
-    - interactive-lab
-    - branding-playful
-    - branding-luxury
-    - dashboard
-  - archive
-    - lookat
-    - meliquence
-  - index.html
-  - README.md
+### 완료
 
-
-### 1. 메인 프로필 페이지
-- 목표:
-  - 기존 대표 포폴 리뉴얼
-  - 컨셉: Futuristic + Editorial (필요하면 비율 조정)
-  - 실무 퍼블리셔 + 인터랙션 역량을 보여주는 포폴
-- 순서:
-  1. 메인 프로필페이지 IA 설계
-  2. 디자인 방향 확정
-  3. Hero 섹션 기획
-  4. 전체 섹션 구성
-  5. 와이어프레임
-  6. 디자인 시스템 (컬러/타이포/컴포넌트)
-  7. 퍼블리싱 시작
-
-#### 메인 프로필페이지 IA 설계
 - Home
 - About
 - Works
-  - Hanlight
-  - Branding Playful
-  - Branding Luxury
-  - Dashboard
-
-- Lab
-  - Interactions
-  - Components
-  - Experiments
-
+- Professional Experience
 - Archive
-- Contact
+- Footer
+
+---
+
+## Works 정책
+
+Works = 개인 프로젝트 전용
+
+포함 프로젝트
+
+- Hanlight
+- PREVEN
+- 보험한장 (예정)
+- Nova Land (예정)
+- Interactive Lab
+
+---
+
+## Professional Experience 정책
+
+실무 프로젝트 전용
+
+예시
+
+- Samsung Shop App
+- Samsung VD
+- Samsung BC
+- KB Star Banking
+- Shilla Duty Free
+- Oak Valley
+
+---
+
+## Works 구조 확정
+
+### 01 Live Branding
+
+- Hanlight
+- PREVEN
+- 보험한장
+
+### 02 Playful Experience
+
+- Nova Land
+
+### 03 Interactive Lab
+
+- Lab Experiments
+
+### 04 Data Visualization
+
+- 추후 프로젝트
+
+---
+
+## Works UI 확정
+
+### PC
+
+#### 좌측
+
+- Live Branding
+- Playful Experience
+- Interactive Lab
+- Data Visualization
+
+#### 우측
+
+카테고리 선택 시 프로젝트 탭 노출
+
+예시
+
+```text
+Hanlight | PREVEN | 보험한장
+```
+
+선택된 프로젝트에 따라
+
+- 썸네일
+- 설명
+- 기술 스택
+- View Project
+
+변경
+
+### 모바일
+
+가로 스크롤 프로젝트 탭 구조
+
+---
+
+## Professional Experience
+
+### PC
+
+Timeline + Article 구조
+
+#### Article
+
+- Overview
+- Role & Contribution
+- Key Tasks
+- Tech Stack
+- Gallery
+
+### 모바일
+
+이중 아코디언 구조
+
+#### Gallery
+
+- 대표 이미지
+- 썸네일 리스트
+- 대표 이미지 변경
+- Lightbox 허용
+
+---
+
+## Nova Land
+
+### 상태
+
+- 기획 완료
+- IA 완료
+- 메인 맵 설계 완료
+- 시설 설계 완료
+- PC 메인 시안 진행 예정
+
+### 컨셉
+
+- 신규 테마파크 오픈 이벤트
+- 사용자는 개장 전 점검 탐험가
+- 스크롤 없는 원페이지
+- 브랜드 경험 중심
+
+### 플로우
+
+```text
+인트로
+→ 탐험 시작
+→ 메인 맵
+→ 시설 탐험
+→ 스탬프 획득
+→ 4개 시설 완료
+→ 신규 어트랙션 공개
+→ 보상 응모
+```
+
+### 시설
+
+- Nova Coaster
+- Luna Light Garden
+- Spark Energy Tower
+- Wonder Parade Hall
+
+---
+
+## PREVEN
+
+### 상태
+
+- 1차 제작 완료
+- 피드백 대기
+- 인터랙션 개선 예정
+
+### 방향
+
+- 신뢰 중심 브랜드 사이트
+- 블루 컬러
+- 한빛전기와 차별화
+
+---
+
+## 보험한장
+
+### 상태
+
+- 기획 단계
+
+### 방향
+
+- 보험 랜딩 페이지
+- 데이터 시각화 요소 활용
+- Data Visualization 카테고리 예정
+
+---
+
+## Lab
+
+- 카드 스택
+- 무한 갤러리
+- SVG 라인
+- 마우스 인터랙션
+
+---
+
+## 해결된 이슈
+
+- hanlight 오타 수정
+- Works 자동 카운팅
+- 모바일 메뉴 개선
+- Footer 링크 개선
+- .nojekyll 적용
+- _assets 배포 문제 해결
+
+---
+
+## 진행 예정
+
+- About 스택 정리
+- 색상 대비 개선
+- Footer 확장
+- Works 구조 개편
+- 최종 인터랙션 추가
+
+---
+
+## 작업 우선순위
+
+1. 보험한장
+2. Nova Land
+3. Works 구조 개편
+4. Portfolio 최종 인터랙션
+5. 최종 마감
+
+---
+
+## 현재 작업 순서
+
+```text
+보험한장
+↓
+Nova Land
+↓
+Works 개편
+↓
+Portfolio 최종 마감
+```
